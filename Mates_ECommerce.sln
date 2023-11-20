@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32929.385
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zMates_ECommerce", "Mates_ECommerce\zMates_ECommerce.csproj", "{0E7383D7-84DF-4E15-8F42-E4C1BA6834B8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dominio", "Dominio\Dominio.csproj", "{BBF0A2FC-3286-4840-BCEC-9A0D66A38DD1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Negocio", "Negocio\Negocio.csproj", "{E2E14950-6767-4A6B-B047-C4B7DD1E1C57}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0E7383D7-84DF-4E15-8F42-E4C1BA6834B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E7383D7-84DF-4E15-8F42-E4C1BA6834B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E7383D7-84DF-4E15-8F42-E4C1BA6834B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E7383D7-84DF-4E15-8F42-E4C1BA6834B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBF0A2FC-3286-4840-BCEC-9A0D66A38DD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBF0A2FC-3286-4840-BCEC-9A0D66A38DD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBF0A2FC-3286-4840-BCEC-9A0D66A38DD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBF0A2FC-3286-4840-BCEC-9A0D66A38DD1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2E14950-6767-4A6B-B047-C4B7DD1E1C57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2E14950-6767-4A6B-B047-C4B7DD1E1C57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2E14950-6767-4A6B-B047-C4B7DD1E1C57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2E14950-6767-4A6B-B047-C4B7DD1E1C57}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DD36B09B-BF50-43E4-A357-314BFFE7C784}
+	EndGlobalSection
+EndGlobal
