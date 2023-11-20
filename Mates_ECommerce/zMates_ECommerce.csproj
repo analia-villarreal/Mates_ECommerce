@@ -105,7 +105,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ABMArticulo.aspx" />
     <Content Include="About.aspx" />
+    <Content Include="AltaArticulo.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -160,6 +162,20 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ABMArticulo.aspx.cs">
+      <DependentUpon>ABMArticulo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ABMArticulo.aspx.designer.cs">
+      <DependentUpon>ABMArticulo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AltaArticulo.aspx.cs">
+      <DependentUpon>AltaArticulo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AltaArticulo.aspx.designer.cs">
+      <DependentUpon>AltaArticulo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
