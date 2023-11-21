@@ -13,5 +13,20 @@ namespace Mates_ECommerce
         {
 
         }
+
+        protected void LogOut_Click(object sender, EventArgs e)
+        {
+            if (Session["usuario"] != null)
+            {
+                Session.Remove("usuario");
+                Response.Redirect("Default.aspx");
+            }
+
+        }
+
+        protected void ibtnCarrito_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("Carrito.aspx", false);
+        }
     }
 }

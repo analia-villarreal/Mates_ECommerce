@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 using Dominio.Models;
 
@@ -15,7 +16,7 @@ namespace Negocio.Models
 
             try
             {
-                datos.setearConsulta("SELECT a.ID, a.NombreArt,a.Descripcion ,c a.IDCategoria,c.NombreCategoria,a.IDSubCategoria, sb.NombreSubCategoria, a.URLImagen, a.Precio, a.Estado FROM Articulos a, Categorias c, SubCategorias sb WHERE a.IDCategoria = c.ID AND sb.ID=a.IDSubCategoria");
+                datos.setearConsulta("SELECT a.ID, a.NombreArt,a.Descripcion ,a.IDCategoria,c.NombreCategoria,a.IDSubCategoria, sb.NombreSubCategoria, a.URLImagen, a.Precio, a.Estado FROM Articulos a, Categorias c, SubCategorias sb WHERE a.IDCategoria = c.ID AND sb.ID=a.IDSubCategoria");
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
@@ -143,5 +144,56 @@ namespace Negocio.Models
             }
 
         }
+
+        public Articulo listar2(int IdAr)
+
+        {
+            Articulo aux = new Articulo();
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+
+                datos.setearConsulta("SELECT a.ID, a.NombreArt, a.Descripcion ,a.IDCategoria,c.NombreCategoria,a.IDSubCategoria, sb.NombreSubCategoria, a.URLImagen, a.Precio FROM Articulos a, Categorias c, SubCategorias sb WHERE a.IDCategoria = c.ID AND sb.ID=a.IDSubCategoria AND a.ID=" + @IdAr + "");
+                datos.setearParametros("@ID", IdAr);
+                datos.ejecutarLectura();
+
+                while (datos.Lector.Read())
+                {
+
+                    aux.ID = (int)datos.Lector["ID"];
+
+
+                    if (!(datos.Lector["NombreArt"] is DBNull))
+                        aux.NombreArt = (string)datos.Lector["NombreArt"];
+
+                    if (!(datos.Lector["Descripcion"] is DBNull))
+                        aux.Descripcion = (string)datos.Lector["Descripcion"];
+
+                    if (!(datos.Lector["Precio"] is DBNull))
+                        aux.Precio = (decimal)datos.Lector["Precio"];
+
+                    if (!(datos.Lector["URLImagen"] is DBNull))
+                        aux.UrlImagen = (string)datos.Lector["URLImagen"];
+
+                    aux.IDCategoria = new Categoria();
+                    aux.IDCategoria.ID = (int)datos.Lector["IDCategoria"];
+                    aux.IDCategoria.NombreCategoria = (string)datos.Lector["NombreCategoria"];
+
+
+                }
+                return aux;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
     }
 }

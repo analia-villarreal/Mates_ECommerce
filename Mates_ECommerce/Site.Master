@@ -43,24 +43,59 @@
             </Scripts>
         </asp:ScriptManager>
 
-        <nav class="navbar navbar-expand-lg">
+                <nav class="navbar navbar-expand-lg" style="background-color:#E1D0CC;">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">Navbar</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <a class="navbar-brand" href="#">
+                    <img src="data:image/png;base64,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" width="150" alt="logo" /></a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="Default.aspx">Home</a>
+                            <a class="nav-link" runat="server" aria-current="page" href="~/">Productos</a>
                         </li>
+
+                        <%if (Session["usuario"] != null && ((Dominio.Models.Usuario)Session["usuario"]).Rol == Dominio.Models.Rol.ADMIN)
+                            {%>
                         <li class="nav-item">
-                            <a class="nav-link" href="About.aspx">About</a>
+                            <div class="dropdown nav-link">
+                                <button class="dropdown-toggle" id="dropdownMenuButton" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Administracion General de Items
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" runat="server" href="ABMs/ABMArticulo">ABM de Articulos</a>
+                                   
+                                </div>
+                            </div>
+
                         </li>
+                        <% }
+                        %>
+
                         <li class="nav-item">
-                            <a class="nav-link" href="Contact.aspx">Contact</a>
+                            <a class="nav-link" runat="server" href="~/Contact">Contacto</a>
                         </li>
                     </ul>
+                    <div class="nav-item d-flex" style="border-radius: 100%">
+                        <a class="nav-link btn btn-outline-danger" runat="server" href="LoginForm.aspx"><i class="fa-solid fa-user"></i></a>
+                    </div>
+                    <% if (Session["usuario"] != null)
+                        {%>
+                    <div class="nav-item d-flex">
+                        <asp:Button ID="LogOut" Text="Salir" runat="server" OnClick="LogOut_Click" CssClass="btn btn-outline-danger nav-link" />
+                    </div>
+                    <% } %>
+
+                    <div class="nav-item d-flex" style="border-radius: 100%">
+                        <a class="nav-link btn btn-outline-danger" ID="ibtnCarrito"  runat="server"><i class="fa-solid fa-cart-shopping" OnClick="ibtnCarrito_Click"></i></a>
+                    </div>
+
+                    <div class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Mate..." aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Buscar</button>
+                    </div>
                 </div>
             </div>
         </nav>

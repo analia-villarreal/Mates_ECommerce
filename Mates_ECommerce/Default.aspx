@@ -2,15 +2,8 @@
 <%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Mates_ECommerce._Default" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-
-    <div class="jumbotron">
-        <h1>ASP.NET</h1>
-        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS, and JavaScript.</p>
-        <p><a href="http://www.asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-    </div>
-
-    <div class="row">
-        <div class="col-md-4">
+    
+                 
              <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
               <div class="carousel-inner">
                 <div class="carousel-item active">
@@ -24,15 +17,17 @@
                 </div>
               </div>
             </div>
-        </div>
-        <div class="col-md-4">
+        
+      <div class="row">
+        <div class="row row-cols-1 row-cols-md-4 g-4">
             <div style="display: flex; justify-content: center; margin-top: 20px; margin-bottom: 20px;">
         <h1>PRODUCTOS DESTACADOS</h1>
-    </div>
-
+            </div>
+       </div>
+          </div>
     <div class="row">
-        <div class="container">
-            <div class="row" style="display:flex">
+        
+            <div class="row row-cols-1 row-cols-md-4 g-4">
 
             <% foreach (Dominio.Models.Articulo item in listaArticulos )
                 { %>
@@ -48,13 +43,13 @@
                             <asp:Label ID="Label1" runat="server" Text="Stock" Visible ="false"></asp:Label>
                         </div>
                         <footer align="center">
-                            <a href="DetalleProducto.aspx?id=<%:item.ID%>" class ="btn btn-danger" align="right">COMPRAR</a>
+                            <a href="DetalleArticulo.aspx?id=<%:item.ID%>" class ="btn btn-danger" align="right">COMPRAR</a>
                         </footer>
                     </div>
                 </div>
             <% } %>
             </div>
-        </div>
+       
     </div>
 
 </asp:Content>
