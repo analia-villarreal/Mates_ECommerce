@@ -11,112 +11,118 @@ namespace Mates_ECommerce
 {
     public partial class DetalleArticulo : System.Web.UI.Page
     {
+        private List<Articulo> listaCarrito;
 
-        private List<Articulo> listaArticulos { get; set; }
+        private List<ItemCarrito> listaCarrito2;
 
-        private List<ItemCarrito> listaCarrito { get; set; }
+        public List<Articulo> listaArticulo { get; set; }
 
+        public Articulo articulo { get; set; }
 
         protected void Page_Load(object sender, EventArgs e)
         {
+
             if (!IsPostBack)
             {
-
-               //btnAddCarrito.Enabled = false;
-
-                Articulo art = new Articulo();
                 ArticuloNegocio negocio = new ArticuloNegocio();
-
-                if (Request.QueryString["id"] != null)
+               
+                Articulo articulo = new Articulo();
+                if (Session["listaCarrito2"] == null)
                 {
-                    int id = int.Parse(Request.QueryString["id"]);
-                    art = negocio.listar2(id);
+                    listaCarrito = new List<Articulo>();
+                    listaCarrito2 = new List<ItemCarrito>();
+                    Session.Add("listaCarrito", listaCarrito);
+                    Session.Add("listaCarrito2", listaCarrito2);
+                }
+                if (Request.QueryString["Id"] != null)
+                {
+                    int Id = Convert.ToInt32(this.Request.QueryString.Get(0));
+                    listaCarrito = (List<Articulo>)Session["listaCarrito"];
+                    listaCarrito2 = (List<ItemCarrito>)Session["listaCarrito2"];
+                    if (Id != 0)
+                    {
+                        this.articulo = articulo;
+                        Cargar(Id);
+                        img.ImageUrl = articulo.UrlImagen.ToString();
+                        lblNombre.Text = articulo.NombreArt;
+                        lblDescripcion.Text = articulo.Descripcion;
+                        lblPrecio.Text = '$' + articulo.Precio.ToString();
+                        
+                    }
 
-                    NombreDetalle.InnerText = art.NombreArt;
-                    DescripcionDetalle.InnerText = art.Descripcion;
-                    PrecioDetalle.InnerText = art.Precio.ToString("N2");
-                    Session.Add("Url_Imagen", art.UrlImagen);
+                    Session.Add("listaCarrito", listaCarrito);
+                    Session.Add("listaCarrito2", listaCarrito2);
+                }
+            }
+        }
+        private void Cargar(int id)
+        {
+            ArticuloNegocio negocio = new ArticuloNegocio();
 
+            try
+            {
+                listaArticulo = negocio.Listar();
+                int i = 0;
+                while (id != listaArticulo[i].ID)
+                {
+                    i++;
+                }
+                articulo.ID = listaArticulo[i].ID;
+                articulo.Precio = listaArticulo[i].Precio;
+                articulo.NombreArt = listaArticulo[i].NombreArt;
+                articulo.Descripcion = listaArticulo[i].Descripcion;
+                articulo.UrlImagen = listaArticulo[i].UrlImagen;
+                               
+
+                i = 0;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+
+
+        protected void btnCarrito_Click(object sender, EventArgs e)
+        {
+            if (Request.QueryString["ID"] == null)
+            {
+                Session.Add("error", "Debes seleccionar un producto.");
+                //Response.Redirect("Error.aspx", false);
+            }
+            else
+            {
+              
+                int Id = Convert.ToInt32(Request.QueryString["ID"].ToString());
+                Articulo articulo = new Articulo();
+                ItemCarrito elemento = new ItemCarrito();
+                this.articulo = articulo;
+                Cargar(Id);
+               
+                elemento.IDArticulo = new Articulo();
+                elemento.IDArticulo.ID = Id;
+                elemento.IDArticulo.NombreArt = articulo.NombreArt;
+                if (txtCantidad.Text == "")
+                {
+                    elemento.Cantidad = 1;
                 }
                 else
                 {
-
+                    elemento.Cantidad = int.Parse(txtCantidad.Text);
                 }
+                
+                elemento.PrecioUnitario = articulo.Precio;
 
-                listaArticulos = negocio.Listar();
-                Session.Add("listaArticulos", listaArticulos);
-
-                if (Session["carrito"] == null)
-                {
-                    listaCarrito = new List<ItemCarrito>();
-                    Session.Add("carrito", listaCarrito);
-
-                }
-
+ 
             }
 
         }
 
-        protected void btnAddCarrito_Click(object sender, EventArgs e)
-        {
-            if (Request.QueryString["id"] != null)
-            {
-
-                string id = Request.QueryString["id"].ToString();
-                listaCarrito = (List<ItemCarrito>)Session["listaCarrito"];
-                listaArticulos = (List<Articulo>)Session["listaArticulos"];
-
-                Articulo art = new Articulo();
-                art = listaArticulos.Find(x => x.ID == int.Parse(id));
-
-                ItemCarrito item = new ItemCarrito();
-
-                if (listaCarrito.Count() == 0)
-                {
-                    item.ID = listaCarrito.Count() + 1;
-                    item.Articulo = art;
-                    item.Cantidad = int.Parse(txtCantidad.Text);
-                }
-
-                foreach (ItemCarrito aux in listaCarrito)
-                {
-                    int i = 0;
-                    int index = 0;
-
-                    item.ID = listaCarrito.Count() + 1;
-                    item.Articulo = art;
-                    
-
-                    if (aux.Articulo.ID == item.Articulo.ID)
-                    {
-
-                        item.Cantidad = int.Parse(txtCantidad.Text) + aux.Cantidad;
-
-                        index = i;
-
-                        i++;
-                        listaCarrito.RemoveAt(index);
-                        break;
-                    }
-                    else
-                    {
-
-                        item.Cantidad = int.Parse(txtCantidad.Text);
-                    }
-                }
-
-
-                listaCarrito.Add(item);
-                Session.Add("carrito", listaCarrito);
-
-
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModalAgregado();", true);
-
-
-            }
-
-        }
-        
+ 
     }
+
 }
+
     

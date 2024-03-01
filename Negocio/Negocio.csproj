@@ -78,7 +78,9 @@
     <Compile Include="Models\ArticuloNegocio.cs" />
     <Compile Include="Models\CategoriaNegocio.cs" />
     <Compile Include="Models\Diccionario.cs" />
+    <Compile Include="Models\ItemCarritoNegocio.cs" />
     <Compile Include="Models\SubCategoriaNegocio.cs" />
+    <Compile Include="Models\PedidoNegocio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

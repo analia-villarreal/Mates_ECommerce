@@ -5,16 +5,17 @@
      <div class="container">
         <div class="row">
             <div class="col-6">
-                <img src="<%: Session["Url_Imagen"].ToString() %>" style="border-radius: 20px; width: 500px">
+                <asp:Image ID="img" runat="server" style="width:500px; height:500px;" />x
             </div>
 
             <div class="col-6">
-                <h2 runat="server" id="NombreDetalle" style="color: white" />
-                <p runat="server" id="DescripcionDetalle" style="color: grey" />
+                <asp:Label ID="lblNombre" runat="server" Text="NOMBRE" style="font:25px bold; background-color:black; color:white"></asp:Label>
+            
+                <asp:Label ID="lblDescripcion" runat="server" Text="DESCRIPCIÓN"></asp:Label>
                 <hr style="color: white" />
                 <div style="display: flex; flex-direction: row; margin-top: 20px;">
                     <h3>$ </h3>
-                    <h3 runat="server" id="PrecioDetalle" style="color: black" />
+                    <asp:Label ID="lblPrecio" runat="server" Text="PRECIO"></asp:Label>
                 </div>
                 <asp:UpdatePanel runat="server">
                     <ContentTemplate>
@@ -25,8 +26,9 @@
 
                         <div style="display: flex; flex-direction: row; margin-top: 50px;">
                             <img src="https://img.icons8.com/ios-glyphs/30/ffffff/shopping-cart--v1.png" style="margin-right: 20px;" />
-                            <asp:Button Text="AÑADIR AL CARRITO" ID="btnAddCarrito" OnClick="btnAddCarrito_Click" Style="width: 500px;" runat="server" CssClass="btn btn-danger" />
+                            <asp:Button Text="AÑADIR AL CARRITO" ID="btnCarrito" OnClick="btnCarrito_Click" Style="width: 500px;" runat="server" CssClass="btn btn-danger" />
                             
+                        </div>
                         </div>
                     </ContentTemplate>
                 </asp:UpdatePanel>

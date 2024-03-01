@@ -11,61 +11,61 @@ namespace Mates_ECommerce
 {
 
 
-    public partial class DetalleArticulo
+    public partial class Login
     {
 
         /// <summary>
-        /// img control.
+        /// lblBienvenida control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image img;
+        protected global::System.Web.UI.WebControls.Label lblBienvenida;
 
         /// <summary>
-        /// lblNombre control.
+        /// lblUsuario control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNombre;
+        protected global::System.Web.UI.WebControls.Label lblUsuario;
 
         /// <summary>
-        /// lblDescripcion control.
+        /// TxtUsuario control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDescripcion;
+        protected global::System.Web.UI.WebControls.TextBox TxtUsuario;
 
         /// <summary>
-        /// lblPrecio control.
+        /// lblPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPrecio;
+        protected global::System.Web.UI.WebControls.Label lblPassword;
 
         /// <summary>
-        /// txtCantidad control.
+        /// TxtContrasenia control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCantidad;
+        protected global::System.Web.UI.WebControls.TextBox TxtContrasenia;
 
         /// <summary>
-        /// btnCarrito control.
+        /// BtnIngresar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCarrito;
+        protected global::System.Web.UI.WebControls.Button BtnIngresar;
     }
 }

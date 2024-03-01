@@ -19,9 +19,11 @@ namespace Dominio.Models
         public int ID { get; set; }
         public string UserName { get; set; }
         public string Pass { get; set; }
-        public string Nombre { get; set; }
+        public string NombreUser { get; set; }
         public string Apellido { get; set; }
+        public string DNI { get; set; }
         public string Email { get; set; }
+        public string Celular { get; set; }
         public Rol Rol { get; set; }
         public bool Estado { get; set; }
 
